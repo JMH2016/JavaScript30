@@ -4,8 +4,8 @@ var datas = [
 		title: 'js Drum!',
         desc: '鍵盤爵士鼓',
         blog: './images/',
-        demo: ' https://jmh2016.github.io/JavaScript30/01_Java-Script-Drum-Kit/index-JMHjs01.html',
-		github: 'https://github.com/JMH2016/JavaScript30/tree/master/01%20-%20JavaScript%20Drum%20Kit',
+        demo: ' https://jmh2016.github.io/JavaScript30/01_JavaScript_Drum_Kit/index-JMHjs01.html',
+		github: 'https://github.com/JMH2016/JavaScript30/tree/master/01-JavaScript_Drum_Kit',
 		gifYn: 'N',
     }
 ];
