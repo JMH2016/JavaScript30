@@ -7,7 +7,16 @@ var datas = [
         demo: ' ./01-JavaScript_Drum_Kit/index-JMHjs01.html',
 		github: 'https://github.com/JMH2016/JavaScript30/tree/master/01-JavaScript_Drum_Kit',
 		gifYn: 'N',
-    }
+    },
+	{
+		no: 2,
+		title: 'Clock!',
+        desc: '就時鐘',
+        blog: './images/',
+        demo: './02-JS_and_CSS_Clock/index-JMHjs02.html',
+		github: 'https://github.com/JMH2016/JavaScript30/tree/master/02-JS_and_CSS_Clock',
+		gifYn: 'N',
+    },
 ];
 
 function createView() {

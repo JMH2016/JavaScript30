@@ -1,4 +1,4 @@
-![](https://github.com/JMH2016/JavaScript30/blob/master/asset/forReadmeD1.png)
+![](https://github.com/JMH2016/JavaScript30/blob/master/asset/forReadme.gif)
 
 # JavaScript30
 

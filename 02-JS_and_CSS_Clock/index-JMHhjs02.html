@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JS + CSS Clock</title>
+</head>
+
+<body>
+    <style>
+        .JMH-header {
+            background-color: #333;
+            text-align: center;
+            padding: 10px;
+            color: #e9fd34;
+            font-size: 20px;
+            font-weight: 100;
+        }
+
+        .JMH-header span {
+            margin: 0 5px;
+        }
+
+        .JMH-header a {
+            text-decoration: none;
+            color: unset;
+        }
+    </style>
+    <div class="JMH-header">
+        <span><a href="https://JMH2016.io/categories/JavaScript30/" target="_blank">JavaScript30 心得</a></span>
+        <span>|</span>
+        <span><a href="https://github.com/JMH2016/JavaScript30" target="_blank">GitHub</a></span>
+    </div>
+
+
+    <div class="clock">
+        <div class="clock-face">
+            <div class="hand hour-hand"></div>
+            <div class="hand min-hand"></div>
+            <div class="hand second-hand"></div>
+        </div>
+    </div>
+
+
+    <style>
+        html {
+            background: rgb(250, 246, 13) ;
+            background-size: cover;
+            font-family: 'helvetica neue';
+            text-align: center;
+            font-size: 10px;
+        }
+
+        body {
+            margin: 0;
+            font-size: 2rem;
+            display: flex;
+            flex: 1;
+            min-height: 100vh;
+            align-items: center;
+        }
+
+        .clock {
+            width: 30rem;
+            height: 30rem;
+            border: 20px solid rgb(2, 1, 1);
+            border-radius: 50%;
+            margin: 50px auto;
+            position: relative;
+            padding: 2rem;
+            box-shadow:
+                0 0 0 4px rgba(0, 0, 0, 0.1),
+                inset 0 0 0 3px #EFEFEF,
+                inset 0 0 10px black,
+                0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .clock-face {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform: translateY(-3px);
+            /* account for the height of the clock hands */
+        }
+
+        .hand {
+            width: 50%;
+            height: 6px;
+            background: black;
+            position: absolute;
+            top: 50%;
+            transform-origin: 100%;
+            transform: rotate(90deg);
+            transition: all 0.05s;
+            transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+        }
+
+        .second-hand {
+            height: 6px;
+            background: #c11f1f;
+        }
+        
+        .min-hand {
+            height: 6px;
+            width: 45%;
+            margin-left: 5%;
+            background: black;
+        }
+        
+        .hour-hand {
+            height: 6px;
+            width: 35%;
+            margin-left: 15%;
+            background: black;
+        }
+        
+    </style>
+
+    <script>
+        const secondHand = document.querySelector('.second-hand');
+        const minHand = document.querySelector('.min-hand');
+        const hourHand = document.querySelector('.hour-hand');
+
+        function setDate() {
+            const now = new Date();
+            // + 90 調整起始點
+            const seconds = now.getSeconds();
+            let secondsDegress = ((seconds / 60) * 360) + 90;
+            secondHand.style.transform = setRotate(secondsDegress);
+
+
+            const mins = now.getMinutes();
+            let minsDegress = ((mins / 60) * 360)  + ((seconds/60)*6) + 90;
+            minHand.style.transform = setRotate(minsDegress);
+
+            const hour = now.getHours();
+            let hourDegress = ((hour / 12) * 360) + ((mins / 12 / 60) * 360) + 90;
+            hourHand.style.transform = setRotate(hourDegress);
+        }
+
+        //在角度為0避免354~0的rotate反彈
+        function setRotate(deg) {
+            if (deg === 0) {
+                document.querySelector('.hand').style.transition = 'all 0s';
+            } else {
+                document.querySelector('.hand').style.transition = 'all 0.05s';
+            }
+            return `rotate(${deg}deg)`;
+        }
+        setInterval(setDate, 1000);
+    </script>
+</body>
+
+</html>
